@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "9b293250-7931-46c7-b856-c22d40a67156",
+		"name": "Jet Devs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "3377206"
+	},
+	"item": [
+		{
+			"name": "Auth Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"testadmin\",\n    \"password\": \"s3cr3t\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/auth/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Upload Files",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJBRE1JTiIsIlVTRVIiXSwidXNlcm5hbWUiOiJ0ZXN0YWRtaW4iLCJzdWIiOiJ0ZXN0YWRtaW4iLCJpYXQiOjE3MTUyNDcwMjUsImV4cCI6MTcxNTMxOTAyNX0.dyWeQgDm0l8ELfWNK5Q2Yu15XNilG-aOyJfV3XvKx5nJVBLIc_0dy5xFIDE2qGqEBhQ6V40WG62qhu2qoaT_GQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/fahmikudo/Downloads/Undangan Digital Wina.xlsx"
+						}
+					]
+				},
+				"url": "http://localhost:8080/files/uploads"
+			},
+			"response": []
+		},
+		{
+			"name": "Get List All Uploaded Files",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJBRE1JTiIsIlVTRVIiXSwidXNlcm5hbWUiOiJ0ZXN0YWRtaW4iLCJzdWIiOiJ0ZXN0YWRtaW4iLCJpYXQiOjE3MTUyNDcwMjUsImV4cCI6MTcxNTMxOTAyNX0.dyWeQgDm0l8ELfWNK5Q2Yu15XNilG-aOyJfV3XvKx5nJVBLIc_0dy5xFIDE2qGqEBhQ6V40WG62qhu2qoaT_GQ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/files?page=1&size=10&orderBy=asc&sortBy=id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"files"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						},
+						{
+							"key": "orderBy",
+							"value": "asc"
+						},
+						{
+							"key": "sortBy",
+							"value": "id"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check Progress",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJBRE1JTiIsIlVTRVIiXSwidXNlcm5hbWUiOiJ0ZXN0YWRtaW4iLCJzdWIiOiJ0ZXN0YWRtaW4iLCJpYXQiOjE3MTUyNDcwMjUsImV4cCI6MTcxNTMxOTAyNX0.dyWeQgDm0l8ELfWNK5Q2Yu15XNilG-aOyJfV3XvKx5nJVBLIc_0dy5xFIDE2qGqEBhQ6V40WG62qhu2qoaT_GQ",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8080/files/check-progress/3"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Review Files",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJBRE1JTiIsIlVTRVIiXSwidXNlcm5hbWUiOiJ0ZXN0YWRtaW4iLCJzdWIiOiJ0ZXN0YWRtaW4iLCJpYXQiOjE3MTUyNDcwMjUsImV4cCI6MTcxNTMxOTAyNX0.dyWeQgDm0l8ELfWNK5Q2Yu15XNilG-aOyJfV3XvKx5nJVBLIc_0dy5xFIDE2qGqEBhQ6V40WG62qhu2qoaT_GQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"activityName\": \"REVIEW\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/files/reviews/3"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete File",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyb2xlcyI6WyJBRE1JTiIsIlVTRVIiXSwidXNlcm5hbWUiOiJ0ZXN0YWRtaW4iLCJzdWIiOiJ0ZXN0YWRtaW4iLCJpYXQiOjE3MTUyNDcwMjUsImV4cCI6MTcxNTMxOTAyNX0.dyWeQgDm0l8ELfWNK5Q2Yu15XNilG-aOyJfV3XvKx5nJVBLIc_0dy5xFIDE2qGqEBhQ6V40WG62qhu2qoaT_GQ",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8080/files/3"
+			},
+			"response": []
+		}
+	]
+}
