@@ -11,7 +11,9 @@ services:
       MYSQL_USER: fileuploaduser
       MYSQL_PASSWORD: fileuploadpassword
     volumes:
-      - mysql_data:/var/lib/mysql
+      - ./mysql_data:/var/lib/mysql
+      - ./init.sql:/data/application/init.sql
+    command: --init-file /data/application/init.sql
     networks:
       - backend
     restart: unless-stopped
@@ -31,8 +33,11 @@ services:
       - mysql_db
     networks:
       - backend
+    restart: always
 
 volumes:
   mysql_data:
 networks:
   backend:
+    name: backend
+    driver: bridge

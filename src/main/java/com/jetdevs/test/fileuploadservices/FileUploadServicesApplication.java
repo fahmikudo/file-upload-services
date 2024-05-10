@@ -3,6 +3,7 @@ package com.jetdevs.test.fileuploadservices;
 import jakarta.annotation.PostConstruct;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -10,6 +11,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 @SpringBootApplication
+@EnableScheduling
 public class FileUploadServicesApplication {
 
 	private final Path root = Paths.get("files");
