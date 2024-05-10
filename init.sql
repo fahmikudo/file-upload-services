@@ -52,7 +52,7 @@ alter table file_upload_task_log_activities add constraint fk_user_id foreign ke
 
 alter table user_roles add constraint fk_role_id foreign key (role_id) references roles (id);
 
-alter table user_roles add constraint fk_user_id foreign key (user_id) references users (id);
+alter table user_roles add constraint fk_user_role_id foreign key (user_id) references users (id);
 
 insert into roles (name) values ('ADMIN'), ('USER');
 
